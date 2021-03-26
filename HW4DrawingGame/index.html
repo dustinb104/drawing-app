@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Canvas</title>
+</head>
+<body>
+    <button onClick="changePenType('pencil')" id="pen">Pen</button>
+    <button onClick="changePenType('erase')" id="eraser">Eraser</button>
+    <button onClick="changePenType('redPen')" id="red">Color: Red</button>
+    <button onClick="changePenType('bluePen')" id="blue">Color: Blue</button>
+    <button onClick="changePenType('greenPen')" id="eraser">Color: Green</button>
+    <button onClick="saveImg()" id="save"> Save Image</button>
+    <button onClick="clearCan()" id="clear" >Clear Canvas</button>
+    <canvas id="canvas"></canvas>
+    <script src="canvas.js"></script>
+
+    <script>
+        var value = "";
+        var globalChoice = "";
+        function changePenType(choice){
+            if(choice == 'pencil'){
+                value = 'pencil';
+                console.log(`${value} is selected`);
+            }
+            else if(choice == 'erase'){
+                value = 'erase';
+                console.log(`${value} is selected`);
+            }
+            else if(choice == 'redPen'){
+                value = 'redPen';
+                console.log(`${value} is selected`);
+            }
+            else if(choice == 'bluePen'){
+                value = 'bluePen';
+                console.log(`${value} is selected`);
+            }
+            else if(choice == 'greenPen'){
+                value = 'greenPen';
+                console.log(`${value} is selected`);
+            }
+        }
+    </script>
+    <script>
+        function saveImg(){
+            var dataURL = canvas.toDataURL();
+            console.log(dataURL);
+            
+        }
+    </script>
+    <script>
+        const context = canvas.getContext('2d');
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        function clearCan(){
+            context.clearRect(0, 0, canvas.width, canvas.height);
+        }
+    </script>
+</body>
+</html>
