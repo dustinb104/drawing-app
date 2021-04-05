@@ -15,6 +15,9 @@
     <button onClick="changePenType('greenPen')" id="eraser">Color: Green</button>
     <button onClick="saveImg()" id="save"> Save Image</button>
     <button onClick="clearCan()" id="clear" >Clear Canvas</button>
+    <input type="color" id="head" name="head"
+           value="#e66465"> 
+    <label for="head">Color Picker</label>
     <canvas id="canvas"></canvas>
     <script src="canvas.js"></script>
 
@@ -47,15 +50,20 @@
     <script>
         function saveImg(){
             var dataURL = canvas.toDataURL();
-            console.log(dataURL);
+            
+            localStorage.clear();
+            localStorage.setItem("canvasData", dataURL);
+            
             
         }
     </script>
+    
     <script>
         const context = canvas.getContext('2d');
         context.clearRect(0, 0, canvas.width, canvas.height);
         function clearCan(){
             context.clearRect(0, 0, canvas.width, canvas.height);
+            localStorage.clear();
         }
     </script>
 </body>
